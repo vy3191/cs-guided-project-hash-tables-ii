@@ -16,6 +16,16 @@ class HashTable:
       bytes_sum += byte
     return bytes_sum % self.capacity
   
+  def resize(self, new_capacity):
+    # We want to double the size of our storage
+    # Once we change the size, we must rehash all items and find new locations
+    
+    # For each slot in storage
+      # loop through all linked list items
+        # Rehash each item
+        # re-insert the item into new storage
+        pass
+  
   def insert(self, key, value):
     # convert the key to an index for our storage
     index = self.my_hash(key)
