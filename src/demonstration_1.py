@@ -51,5 +51,20 @@ def top_k_frequent(words, k):
     Output:
     List[str]
     """
-    # Your code here
+    # Build our frequency dictionary
+    word_dict = {}
+    
+    for word in words:
+        if word not in word_dict:
+            word_dict[word] = 1
+        else:
+            word_dict[word] += 1
+            
+    sorted_value = sorted(list(word_dict.items()), key=lambda item: item[1], reverse=True)           
+    return [x[0] for x in sorted_value[0:k]]               
+    
+results = top_k_frequent(["rules", "lambda", "school", "lambda", "school", "rocks"], 2)   
+print(results)          
+results_x = top_k_frequent(["the", "sky", "is", "cloudy", "the", "the", "the", "cloudy", "is", "is"], 4)   
+print(results_x)          
 
