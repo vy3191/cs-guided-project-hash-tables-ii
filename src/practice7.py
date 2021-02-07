@@ -6,17 +6,13 @@
 def csGroupAnagrams(strs):
     # have hash table to store the given words
     group_dict = {}
-    # store all the words in the dict
-    # where key is sorted word and values are all the related anagrams
+    # loop through the given string
     for word in strs:
-        # now sort the each word
-        sorted_word = "".join(sorted(word))
-        # if the sorted word is not in the group dict, then place it as key: [word]
-        if sorted_word not in group_dict:
-            group_dict[sorted_word] = [word]
-        else:
-            group_dict[sorted_word].append(word)  
-    
+      uni = sum(ord(char) for char in word)
+      if uni not in group_dict:
+        group_dict[uni] = [word]
+      group_dict[uni].append(word)
+    print(group_dict)
     # have an empty array
     arr = [] 
     # loop through the grouped_dict
