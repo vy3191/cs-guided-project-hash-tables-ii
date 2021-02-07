@@ -60,7 +60,8 @@ def top_k_frequent(words, k):
         else:
             word_dict[word] += 1
             
-    sorted_value = sorted(list(word_dict.items()), key=lambda item: item[1], reverse=True)           
+    sorted_value = sorted(list(word_dict.items()), key=lambda item: item[1], reverse=True)   
+    print(sorted_value)        
     return [x[0] for x in sorted_value[0:k]]               
     
 results = top_k_frequent(["rules", "lambda", "school", "lambda", "school", "rocks"], 2)   

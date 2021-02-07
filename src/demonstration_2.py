@@ -44,13 +44,25 @@ Note that 'B' and 'b' are treated as two different characters.
 ```
 """
 def frequency_sort(s: str) -> str:
-    """
-    Inputs:
-    s -> str
-
-    Output:
-    str
-    """
     # Your code here
+    letter_dict = {}
+    for char in s:
+        if char not in letter_dict:
+            letter_dict[char] = 1
+        else:
+            letter_dict[char] += 1   
+    # print(letter_dict)   
+    sorted_letters = sorted(list(letter_dict.items()), key=lambda item: item[1], reverse=True) 
+    # print(sorted_letters)  
+    new_str=""
+    for tup in sorted_letters:
+        new_str += tup[0]*tup[1]
+    print(new_str)
+           
+    
+results1= frequency_sort("free")     # "eefr"
+results2 = frequency_sort("dddbbb")   # "dddbbb"
+results3 = frequency_sort("Bbcc")   # "ccBb"
+print(results1)
 
     
